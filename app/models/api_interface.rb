@@ -28,57 +28,65 @@ class ApiInterface < ApplicationRecord
   def self.image_urls(style)
     if style[:type] == 'accessories'
 
-      [
-        {accessory: style[:accessories_url]},
-        {outerwear: self.parse(self.products('outerwear')).sample['image']['url']},
-        {top: self.parse(self.products('tops')).sample['image']['url']},
-        {bottoms: self.parse(self.products('bottoms')).sample['image']['url']},
-        {shoes: self.parse(self.products('shoes')).sample['image']['url']}
-      ]
+      {
+        accessories: style[:accessories_url],
+        outerwear: self.parse(self.products('outerwear')).sample['image']['url'],
+        tops: self.parse(self.products('tops')).sample['image']['url'],
+        pants: self.parse(self.products('pants')).sample['image']['url'],
+        shoes: self.parse(self.products('shoes')).sample['image']['url']
+      }
 
     elsif style[:type] == 'outerwear'
 
-      [
-        {accessory: self.parse(self.products('accessories').sample['image']['url']},
-        {outerwear: style[:outerwear_url]},
-        {top: self.parse(self.products('tops')).sample['image']['url']},
-        {bottoms: self.parse(self.products('bottoms').sample['image']['url']},
-        {shoes: self.parse(self.products('shoes').sample['image']['url']}
-      ]
+      {
+        accessories: self.parse(self.products('accessories')).sample['image']['url'],
+        outerwear: style[:outerwear_url],
+        tops: self.parse(self.products('tops')).sample['image']['url'],
+        pants: self.parse(self.products('pants')).sample['image']['url'],
+        shoes: self.parse(self.products('shoes')).sample['image']['url']
+      }
 
     elsif style[:type] == 'tops'
 
-      [
-        {accessory: self.parse(self.products('accessories').sample['image']['url']},
-        {outerwear: self.parse(self.products('outerwear')).sample['image']['url']},
-        {top: style[:tops_url]},
-        {bottoms: self.parse(self.products('bottoms').sample['image']['url']},
-        {shoes: self.parse(self.products('shoes').sample['image']['url']}
-      ]
+      {
+        accessories: self.parse(self.products('accessories')).sample['image']['url'],
+        outerwear: self.parse(self.products('outerwear')).sample['image']['url'],
+        tops: style[:tops_url],
+        pants: self.parse(self.products('pants')).sample['image']['url'],
+        shoes: self.parse(self.products('shoes')).sample['image']['url']
+      }
 
-    elsif style[:type] == 'bottoms'
+    elsif style[:type] == 'pants'
 
-      [
-        {accessory: self.parse(self.products('accessories').sample['image']['url']},
-        {outerwear: self.parse(self.products('outerwear')).sample['image']['url']},
-        {top: self.parse(self.products('tops')).sample['image']['url']},
-        {bottoms: style[:bottoms_url]},
-        {shoes: self.parse(self.products('shoes').sample['image']['url']}
-      ]
+      {
+        accessories: self.parse(self.products('accessories')).sample['image']['url'],
+        outerwear: self.parse(self.products('outerwear')).sample['image']['url'],
+        tops: self.parse(self.products('tops')).sample['image']['url'],
+        pants: style[:pants_url],
+        shoes: self.parse(self.products('shoes')).sample['image']['url']
+      }
 
     else
 
-      [
-        {accessory: self.parse(self.products('accessories').sample['image']['url']},
-        {outerwear: self.parse(self.products('outerwear')).sample['image']['url']},
-        {top: self.parse(self.products('tops')).sample['image']['url']},
-        {bottoms: self.parse(self.products('bottoms').sample['image']['url']},
-        {shoes: style[:shoes_url]},
-      ]
+      {
+        accessories: self.parse(self.products('accessories')).sample['image']['url'],
+        outerwear: self.parse(self.products('outerwear')).sample['image']['url'],
+        tops: self.parse(self.products('tops')).sample['image']['url'],
+        pants: self.parse(self.products('pants')).sample['image']['url'],
+        shoes: style[:shoes_url],
+      }
 
     end
   end
 
+  def self.swap(item, urls) 
+    old_url = urls[item]
+    until urls[item] != old_url 
+      urls[item] = self.parse(self.products(item.to_s)).sample['image']['url']
+    end 
+
+    urls
+  end 
 
 
 

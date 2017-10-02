@@ -10,8 +10,8 @@ class ApiInterfaceController < ApplicationController
     @products = ApiInterface.parse(response)
   end
 
-  def bottoms
-    response  = ApiInterface.ten_products('bottoms')
+  def pants
+    response  = ApiInterface.ten_products('pants')
     @products = ApiInterface.parse(response)
   end
 
@@ -25,29 +25,45 @@ class ApiInterfaceController < ApplicationController
     @products = ApiInterface.parse(response)
   end
 
-  def outfit
+  def style
     style   = params[:style]
     @images = ApiInterface.image_urls(style)
   end
 
-  def swap_accessory
-    render :outfit
+  def swap_accessories
+    images = image_params
+    @images = ApiInterface.swap(:accessories, images)
+    render :style
   end
 
   def swap_outerwear
-    render :outfit
+    images = image_params
+    @images = ApiInterface.swap(:outerwear, images)
+    render :style
   end
 
-  def swap_top
-    render :outfit
+  def swap_tops
+    images = image_params
+    @images = ApiInterface.swap(:tops, images)
+    render :style
   end
 
-  def swap_bottoms
-    render :outfit
+  def swap_pants
+    images = image_params
+    @images = ApiInterface.swap(:pants, images)
+    render :style
   end
 
   def swap_shoes
-    render :outfit
+    images = image_params.to_h
+    @images = ApiInterface.swap(:shoes, images)
+    render :style
   end
+
+  private 
+
+  def image_params
+    params.require(:images).permit(:accessories, :outerwear, :tops, :pants, :shoes)
+  end 
 
 end

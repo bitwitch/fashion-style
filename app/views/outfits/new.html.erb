@@ -1,0 +1,20 @@
+<img src=<%=@images[:accessories]%> alt="Accessory Image">
+<p>Accessory</p>
+
+<img src=<%=@images[:outerwear]%> alt="Outerwear Image">
+<p>Outerwear</p>
+
+<img src=<%=@images[:tops]%> alt="Top Image">
+<p>Top</p>
+
+<img src=<%=@images[:pants]%> alt="Pants Image">
+<p>Pants</p>
+
+<img src=<%=@images[:shoes]%> alt="Shoes Image">
+<p>Shoes</p>
+
+<%= form_tag outfits_path(images: @images) do %>
+  <%= label_tag "What do you want to name your outfit? " %>
+  <%= text_field_tag :name %>
+  <%= submit_tag "Save Outfit" %>
+<% end %>
