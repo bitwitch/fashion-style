@@ -4,5 +4,14 @@ Rails.application.routes.draw do
 
   get '/welcome', to: 'sessions#welcome'
   root to: 'sessions#welcome'
+  get '/outerwear', to: 'api_interface#outerwear'
+  get '/tops', to: 'api_interface#tops'
+  get '/bottoms', to: 'api_interface#bottoms'
+  get '/accessories', to: 'api_interface#accessories'
+  get '/shoes', to: 'api_interface#shoes'
+
+
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
