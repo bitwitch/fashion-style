@@ -1,0 +1,7 @@
+<% @products.each do |product| %>
+  <div class="product-image" style="background-image: url('<%= product['image']['url'] %>');">
+  </div>
+  <div class="product-name">
+    <p><%= product[:name] %></p>
+  </div>
+<% end%>
