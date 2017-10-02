@@ -4,54 +4,13 @@ class ApiInterface < ApplicationRecord
 
   @@client = Shopsense::API.new({'partner_id' => 'uid401-39901049-24'})
 
-
-  def self.ten_accessories
-    response = @@client.search('accessories')
-    raw_products = JSON.parse(response)['products']
-  end 
-
-  def self.ten_outerwear
-    response = @@client.search('outerwear')
+  def self.ten_products(type)
+    response = @@client.search(type)
     raw_products = JSON.parse(response)['products']
   end
 
-  def self.ten_tops 
-    response = @@client.search('tops')
-    raw_products = JSON.parse(response)['products']
-  end 
-
-  def self.ten_bottoms
-    response = @@client.search('pants')
-    raw_products = JSON.parse(response)['products']
-  end
-
-  def self.ten_shoes
-    response = @@client.search('shoes')
-    raw_products = JSON.parse(response)['products']
-  end
-
-  def self.accessories
-    response = @@client.search('accessories', 0, 50)
-    raw_products = JSON.parse(response)['products']
-  end 
-
-  def self.outerwear
-    response = @@client.search('outerwear', 0, 50)
-    raw_products = JSON.parse(response)['products']
-  end
-
-  def self.tops 
-    response = @@client.search('tops', 0, 50)
-    raw_products = JSON.parse(response)['products']
-  end 
-
-  def self.bottoms
-    response = @@client.search('pants', 0, 50 )
-    raw_products = JSON.parse(response)['products']
-  end
-
-  def self.shoes
-    response = @@client.search('shoes', 0, 50)
+  def self.products(type)
+    response = @@client.search(type, 0, 50)
     raw_products = JSON.parse(response)['products']
   end
 
@@ -70,55 +29,56 @@ class ApiInterface < ApplicationRecord
     if style[:type] == 'accessories'
 
       [
-        style[:accessories_url],
-        self.parse(self.accessories).sample['image']['url'],
-        self.parse(self.tops).sample['image']['url'],
-        self.parse(self.bottoms).sample['image']['url'],
-        self.parse(self.shoes).sample['image']['url']
+        {accessory: style[:accessories_url]},
+        {outerwear: self.parse(self.products('outerwear')).sample['image']['url']},
+        {top: self.parse(self.products('tops')).sample['image']['url']},
+        {bottoms: self.parse(self.products('bottoms')).sample['image']['url']},
+        {shoes: self.parse(self.products('shoes')).sample['image']['url']}
       ]
 
     elsif style[:type] == 'outerwear'
 
       [
-        self.parse(self.accessories).sample['image']['url'],
-        style[:outerwear_url],
-        self.parse(self.tops).sample['image']['url'],
-        self.parse(self.bottoms).sample['image']['url'],
-        self.parse(self.shoes).sample['image']['url']
+        {accessory: self.parse(self.products('accessories').sample['image']['url']},
+        {outerwear: style[:outerwear_url]},
+        {top: self.parse(self.products('tops')).sample['image']['url']},
+        {bottoms: self.parse(self.products('bottoms').sample['image']['url']},
+        {shoes: self.parse(self.products('shoes').sample['image']['url']}
       ]
 
     elsif style[:type] == 'tops'
 
       [
-        self.parse(self.accessories).sample['image']['url'],
-        self.parse(self.outerwear).sample['image']['url'],
-        style[:tops_url],
-        self.parse(self.bottoms).sample['image']['url'],
-        self.parse(self.shoes).sample['image']['url']
+        {accessory: self.parse(self.products('accessories').sample['image']['url']},
+        {outerwear: self.parse(self.products('outerwear')).sample['image']['url']},
+        {top: style[:tops_url]},
+        {bottoms: self.parse(self.products('bottoms').sample['image']['url']},
+        {shoes: self.parse(self.products('shoes').sample['image']['url']}
       ]
 
     elsif style[:type] == 'bottoms'
 
       [
-        self.parse(self.accessories).sample['image']['url'],
-        self.parse(self.outerwear).sample['image']['url'],
-        self.parse(self.tops).sample['image']['url'],
-        style[:bottoms_url],
-        self.parse(self.shoes).sample['image']['url']
+        {accessory: self.parse(self.products('accessories').sample['image']['url']},
+        {outerwear: self.parse(self.products('outerwear')).sample['image']['url']},
+        {top: self.parse(self.products('tops')).sample['image']['url']},
+        {bottoms: style[:bottoms_url]},
+        {shoes: self.parse(self.products('shoes').sample['image']['url']}
       ]
 
     else
 
       [
-        self.parse(self.accessories).sample['image']['url'],
-        self.parse(self.outerwear).sample['image']['url'],
-        self.parse(self.tops).sample['image']['url'],
-        self.parse(self.bottoms).sample['image']['url'],
-        style[:shoes_url]
+        {accessory: self.parse(self.products('accessories').sample['image']['url']},
+        {outerwear: self.parse(self.products('outerwear')).sample['image']['url']},
+        {top: self.parse(self.products('tops')).sample['image']['url']},
+        {bottoms: self.parse(self.products('bottoms').sample['image']['url']},
+        {shoes: style[:shoes_url]},
       ]
 
-    end 
-  end 
+    end
+  end
+
 
 
 
