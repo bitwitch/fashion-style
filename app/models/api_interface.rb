@@ -45,14 +45,22 @@ class ApiInterface < ApplicationRecord
   def self.parse(response)
     response.map do |product|
       image = product["images"].select { |i| i["sizeName"] == 'Large' }.pop
-      if product["colors"] && product["colors"].is_a?(Array) && product["colors"].first && product["colors"].first["canonical"]
-        color = product["colors"].first["canonical"].first
+      if product["colors"] && product["colors"].is_a?(Array) && product["colors"].first 
+        if product["colors"].first["canonical"]
+          if product["name"] == "Relaxed Cross-Strap Tunic for Women"
+            color = 'purple'
+          else
+            color = product["colors"].first["canonical"].first
+          end
+        elsif product["colors"].first["name"] && product["colors"].first["name"] == "Vintage Malibu Wash"
+          color = "denim"
+        end
       end
-      puts image.inspect
+      puts product.inspect
       {
         'name' => product["name"],
         'image' => image,
-        'color' => color || "black"
+        'color' => color ? color.downcase : "none"
       }
     end
   end
@@ -116,6 +124,7 @@ class ApiInterface < ApplicationRecord
         end.sample["image"]["url"],
 
         tops: self.parse(self.products('tops')).select do |product|
+          product["color"] == "denim" ||
           product["color"] == "black" ||
           product["color"] == "blue" ||
           product["color"] == "white" ||
@@ -127,7 +136,60 @@ class ApiInterface < ApplicationRecord
         shoes: self.parse(self.products('heels')).select do |product|
           product["color"] == "black"
         end.sample["image"]["url"]
-      }
+      } 
+
+    elsif color == "blue" || color == "pink" || color == "green" || color == "red"
+
+      {
+        accessories: self.parse(self.products('accessories')).sample['image']['url'],
+
+        outerwear: self.parse(self.products('outerwear')).select do |product|
+          product["color"] == "neutral" ||
+          product["color"] == "sand" ||
+          product["color"] == "black" ||
+          product["color"] == "beige"
+        end.sample["image"]["url"],
+
+        tops: self.parse(self.products('tops')).select do |product|
+          product["color"] == "black" ||
+          product["color"] == "grey" ||
+          product["color"] == "white" ||
+          product["color"] == "gray"
+        end.sample["image"]["url"],
+
+        pants: style[:pants_url],
+
+        shoes: self.parse(self.products('heels')).select do |product|
+          product["color"] == "black" ||
+          product["color"] == "nude" ||
+          product["color"] == "tan" ||
+          product["color"] == "gold" 
+        end.sample["image"]["url"]
+      } 
+
+    elsif color == "white"
+
+      {
+        accessories: self.parse(self.products('accessories')).sample['image']['url'],
+
+        outerwear: self.parse(self.products('outerwear')).sample['image']['url'],
+
+        tops: self.parse(self.products('tops')).select do |product|
+          product["color"] == "denim" ||
+          product["color"] == "black" ||
+          product["color"] == "white" 
+        end.sample["image"]["url"],
+
+        pants: style[:pants_url],
+
+        shoes: self.parse(self.products('heels')).select do |product|
+          product["color"] == "pink" ||
+          product["color"] == "beige" ||
+          product["color"] == "orange" ||
+          product["color"] == "silver" ||
+          product["color"] == "gold" 
+        end.sample["image"]["url"]
+      } 
 
     else
 

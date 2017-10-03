@@ -27,7 +27,7 @@ class ApiInterfaceController < ApplicationController
 
   def style
     style   = params[:style]
-    color   = params[:color]
+    color   = params[:color].downcase
     @images = ApiInterface.image_urls(style, color)
   end
 
