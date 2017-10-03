@@ -9,25 +9,31 @@ class OutfitsController < ApplicationController
   end 
 
   def new
-    @images = params[:images]
+    @images = outfit_params
   end 
 
   def create
-    images = params[:images]
-    @outfit = Outfit.create({
+    images = outfit_params
+    @outfit = Outfit.create(
       name: params[:name],
-      user_id: current_user.id
-      accessories_url: images[:accessories],
-      outerwear_url: images[:outerwear], 
-      tops_url: images[:tops], 
-      bottoms_url: images[:bottoms], 
-      shoes_url: images[:shoes]
-    })
+      user_id: current_user.id,
+      accessories_url: outfit_params[:accessories],
+      outerwear_url: outfit_params[:outerwear], 
+      tops_url: outfit_params[:tops], 
+      pants_url: outfit_params[:pants], 
+      shoes_url: outfit_params[:shoes]
+    )
     redirect_to @outfit 
   end 
 
   def destroy 
 
+  end 
+
+  private 
+
+  def outfit_params 
+    params.require(:images).permit(:accessories, :outerwear, :tops, :pants, :shoes)
   end 
 
 end

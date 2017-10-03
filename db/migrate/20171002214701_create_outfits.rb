@@ -6,7 +6,7 @@ class CreateOutfits < ActiveRecord::Migration[5.1]
       t.string :accessories_url 
       t.string :outerwear_url 
       t.string :tops_url 
-      t.string :bottoms_url 
+      t.string :pants_url 
       t.string :shoes_url 
       
       t.timestamps

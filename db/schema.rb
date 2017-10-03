@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20171002214701) do
     t.string "accessories_url"
     t.string "outerwear_url"
     t.string "tops_url"
-    t.string "bottoms_url"
+    t.string "pants_url"
     t.string "shoes_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
