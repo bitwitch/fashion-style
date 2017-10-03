@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :require_login
   skip_before_action :require_login, only: [:new, :create]
 
-  def index 
+  def browse 
 
   end 
 
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user)
-      redirect_to users_path
+      redirect_to browse_path
     else
       flash.now[:error] = "Username already exists or Passwords didnt match"
       render :new

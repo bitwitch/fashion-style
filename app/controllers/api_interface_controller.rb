@@ -60,6 +60,13 @@ class ApiInterfaceController < ApplicationController
     render :style
   end
 
+  def page 
+    offset = 10 * (params[:page].to_i - 1)
+    response = ApiInterface.ten_products(params[:type], offset, 10)
+    @products = ApiInterface.parse(response)
+    render params[:type].to_s 
+  end 
+
   private 
 
   def image_params

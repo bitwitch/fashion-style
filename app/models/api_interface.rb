@@ -4,8 +4,8 @@ class ApiInterface < ApplicationRecord
 
   @@client = Shopsense::API.new({'partner_id' => 'uid401-39901049-24'})
 
-  def self.ten_products(type)
-    response = @@client.search(type)
+  def self.ten_products(type, offset=0, results=10)
+    response = @@client.search(type, offset, results)
     raw_products = JSON.parse(response)['products']
   end
 

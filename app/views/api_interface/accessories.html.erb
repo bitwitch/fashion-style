@@ -1,13 +1,19 @@
 <% @products.each do |product| %>
 
   <div class="product-image">
-
     <%= link_to image_tag(product['image']['url']), style_path(style: {type: 'accessories', accessories_url: product['image']['url']}) %>
-
-
   </div>
+
   <div class="product-name">
     <%= product['name'] %>
   </div>
 
-<% end%>
+<% end %>
+<br>
+
+<%= link_to "1", page_path(type: 'accessories', page: 1) %>
+<%= link_to "2", page_path(type: 'accessories', page: 2) %>
+<%= link_to "3", page_path(type: 'accessories', page: 3) %>
+<%= link_to "4", page_path(type: 'accessories', page: 4) %>
+<%= link_to "5", page_path(type: 'accessories', page: 5) %>
+
