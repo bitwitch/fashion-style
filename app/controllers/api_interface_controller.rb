@@ -11,7 +11,7 @@ class ApiInterfaceController < ApplicationController
   end
 
   def pants
-    response  = ApiInterface.ten_products('pants')
+    response  = ApiInterface.ten_products('pants jeans')
     @products = ApiInterface.parse(response)
   end
 
@@ -21,13 +21,14 @@ class ApiInterfaceController < ApplicationController
   end
 
   def shoes
-    response  = ApiInterface.ten_products('shoes')
+    response  = ApiInterface.ten_products('heels')
     @products = ApiInterface.parse(response)
   end
 
   def style
     style   = params[:style]
-    @images = ApiInterface.image_urls(style)
+    color   = params[:color]
+    @images = ApiInterface.image_urls(style, color)
   end
 
   def swap_accessories
@@ -60,17 +61,17 @@ class ApiInterfaceController < ApplicationController
     render :style
   end
 
-  def page 
+  def page
     offset = 10 * (params[:page].to_i - 1)
     response = ApiInterface.ten_products(params[:type], offset, 10)
     @products = ApiInterface.parse(response)
-    render params[:type].to_s 
-  end 
+    render params[:type].to_s
+  end
 
-  private 
+  private
 
   def image_params
     params.require(:images).permit(:accessories, :outerwear, :tops, :pants, :shoes)
-  end 
+  end
 
 end

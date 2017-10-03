@@ -1,0 +1,30 @@
+<!-- <% @images.each do |url| %>
+
+  <div class="outfit-image">
+    <img src=<%=url%>>
+  </div>
+
+<% end %> -->
+
+<img src=<%=@images[:accessory]%> alt="Accessory Image">
+<p>Accessory</p>
+<%= link_to "Swap Accessory", swap_accessory_path(images: @images) %>
+
+<img src=<%=@images[:outerwear]%> alt="Outerwear Image">
+<p>Outerwear</p>
+<%= link_to "Swap Outerwear", swap_outerwear_path(images: @images) %>
+
+
+<img src=<%=@images[:tops]%> alt="Top Image">
+<p>Top</p>
+<%= link_to "Swap Top", swap_top_path(images: @images) %>
+
+
+<img src=<%=@images[:bottoms]%> alt="Bottoms Image">
+<p>Bottoms</p>
+<%= link_to "Swap Bottoms", swap_bottoms_path(images: @images) %>
+
+
+<img src=<%=@images[:shoes]%> alt="Shoes Image">
+<p>Shoes</p>
+<%= link_to "Swap Shoes", swap_shoes_path(images: @images) %>
