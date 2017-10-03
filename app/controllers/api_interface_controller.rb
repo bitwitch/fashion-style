@@ -29,6 +29,7 @@ class ApiInterfaceController < ApplicationController
     style   = params[:style]
     color   = params[:color].downcase
     @images = ApiInterface.image_urls(style, color)
+    byebug
   end
 
   def swap_accessories

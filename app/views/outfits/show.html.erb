@@ -1,5 +1,6 @@
 <img src=<%=@outfit[:accessories_url]%> alt="Accessory Image">
 <p>Accessory</p>
+<p><%= @outfit["description"]%></p>
 
 <img src=<%=@outfit[:outerwear_url]%> alt="Outerwear Image">
 <p>Outerwear</p>
@@ -12,3 +13,5 @@
 
 <img src=<%=@outfit[:shoes_url]%> alt="Shoes Image">
 <p>Shoes</p>
+
+<%= link_to "Delete This Outfit", @outfit, method: "delete" %>
