@@ -1,0 +1,16 @@
+<%= image_tag(@user.image, alt: 'icon') if @user.image %>
+
+<h1><%= @user.name if @user.name%></h1>
+
+<p>Age: <%= @user.age if @user.age %></p>
+<p>Location: <%= @user.location if @user.location %></p>
+<p>Style: <%= @user.style_description if @user.style_description %></p>
+<br>
+
+<% if @user == current_user %>
+  <%= link_to "My Friends", my_friends_path %><br>
+  <%= link_to "Edit Profile", edit_user_path(@user) %>
+<% else %>
+  <%= link_to "Add Friend", add_friend_path(friend_id: @user) %>
+<% end %> 
+

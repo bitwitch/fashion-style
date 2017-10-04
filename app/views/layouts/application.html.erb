@@ -13,9 +13,10 @@
     <div class="header">
       <div class="nav">
         <div class="logout">
-          <%= link_to "My Profile", '#' %>
+          <%= link_to "My Profile", current_user %>
           <%= link_to "My Outfits", outfits_path %>
           <%= link_to "Browse", browse_path %>
+          <%= link_to "Find Friends", users_path %>
           <%= link_to "Logout", logout_path %>
         </div>
       </div>
