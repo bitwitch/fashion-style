@@ -12,3 +12,14 @@
 
 <img src=<%=@outfit[:shoes_url]%> alt="Shoes Image">
 <p>Shoes</p>
+
+
+<% if @outfit.user == current_user %>
+  <%= link_to "View Likes", view_likes_path(outfit_id: @outfit) %>
+
+<% elsif Like.liked?(current_user, @outfit)%>
+ <%= link_to "Unlike", unlike_path(outfit_id: @outfit)%>
+<% else %>
+  <%= link_to "Like", like_outfit_path(outfit_id: @outfit) %>
+
+<% end %>
