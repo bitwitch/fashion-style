@@ -2,13 +2,13 @@ class UsersController < ApplicationController
   before_action :require_login
   skip_before_action :require_login, only: [:new, :create]
 
-  def index 
-    @users = User.all 
-  end 
+  def index
+    @users = User.all
+  end
 
-  def browse 
+  def browse
 
-  end 
+  end
 
   def new
     @user = User.new
@@ -32,26 +32,31 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to @user 
-    else 
+      redirect_to @user
+    else
       flash[:error] = "Invalid information, edit the fields below and try again."
-      render :edit 
-    end 
-  end 
+      render :edit
+    end
+  end
 
   def show
     @user = User.find(params[:id])
-  end 
+  end
 
   def add_friend
     friend = User.find(params[:friend_id].to_i)
     current_user.friend(friend)
     redirect_to current_user
-  end 
+  end
 
   def my_friends
-    @users = current_user.friends 
+    @users = current_user.friends
     render :index
+  end
+
+  def unfriend
+    current_user.friendships.find { |friendship| friendship.friend_id == params[:friend_id].to_i }.destroy
+    redirect_to current_user
   end
 
   private
@@ -62,8 +67,8 @@ class UsersController < ApplicationController
 
   def require_login
     unless logged_in?
-      redirect_to welcome_path 
-    end 
+      redirect_to welcome_path
+    end
   end
 
 
