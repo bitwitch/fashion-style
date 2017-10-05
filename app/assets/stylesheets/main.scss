@@ -1,0 +1,16 @@
+@import 'variables';
+
+body {
+  color: $font-base;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover, &:active, &:focus {
+    color: $link-color-hover;
+  }
+}
