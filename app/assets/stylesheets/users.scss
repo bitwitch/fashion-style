@@ -16,8 +16,51 @@
 
   .user-profile-links {
     a {
+      color: lightskyblue;
       display: inline-block;
       padding: 0 20px;
+    }
+  }
+}
+
+.user-profile-edit-wrapper {
+  text-align: center;
+  margin: 70px;
+
+  img {
+    max-width: 180px;
+    max-height: 200px;
+    display: inline-block;
+    margin: 10px;
+  }
+
+  .user-profile-edit-text-wrapper {
+    margin: 40px;
+
+    input#user_name{
+      border: cornflowerblue;
+      padding: 13px;
+      border-radius: 6px;
+      border-color: cornflowerblue;
+    }
+    input#user_age{
+      border: cornflowerblue;
+      padding: 13px;
+      border-radius: 6px;
+      border-color: cornflowerblue;
+    }
+    input#user_location{
+      border: cornflowerblue;
+      padding: 13px;
+      border-radius: 6px;
+      border-color: cornflowerblue;
+    }
+    textarea#user_style_description{
+      border: cornflowerblue;
+      padding: 13px;
+      border-radius: 6px;
+      border-color: cornflowerblue;
+      margin-bottom: -2em;
     }
   }
 }
