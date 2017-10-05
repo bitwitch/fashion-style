@@ -1,3 +1,23 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'variables';
+
+.user-profile-wrapper {
+  text-align: center;
+
+  img {
+    max-width: 200px;
+  }
+
+  h1 {
+    color: $heading-color;
+  }
+
+  .user-profile-links {
+    a {
+      display: inline-block;
+      padding: 0 20px;
+    }
+  }
+}

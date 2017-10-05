@@ -1,20 +1,23 @@
-<%= image_tag(@user.image, alt: 'icon') if @user.image %>
+<div class="user-profile-wrapper">
+  <%= image_tag(@user.image, alt: 'icon', class: 'user-profile-img') if @user.image %>
 
-<h1><%= @user.name if @user.name%></h1>
+  <div class="user-profile-text-wrapper">
+    <h1><%= @user.name if @user.name%></h1>
+    <p>Age: <%= @user.age if @user.age %></p>
+    <p>Location: <%= @user.location if @user.location %></p>
+    <p>Style: <%= @user.style_description if @user.style_description %></p>
+  </div>
+  <div class="user-profile-links">
+    <%= link_to "Outfits", all_outfits_path(user_id: @user) %>
 
-<p>Age: <%= @user.age if @user.age %></p>
-<p>Location: <%= @user.location if @user.location %></p>
-<p>Style: <%= @user.style_description if @user.style_description %></p>
-<br>
-
-<%= link_to "Outfits", all_outfits_path(user_id: @user) %>
-
-<% if @user == current_user %>
-  <%= link_to "My Friends", my_friends_path %><br>
-  <%= link_to "Outfits I Like", outfits_i_like_path %>
-  <%= link_to "Edit Profile", edit_user_path(@user) %>
-<% elsif current_user.friends.include?(@user)%>
-  <%= link_to "Unfriend", unfriend_path(friend_id: @user) %>
-<% else %>
-  <%= link_to "Add Friend", add_friend_path(friend_id: @user) %>
-<% end %>
+    <% if @user == current_user %>
+      <%= link_to "My Friends", my_friends_path %>
+      <%= link_to "Outfits I Like", outfits_i_like_path %>
+      <%= link_to "Edit Profile", edit_user_path(@user) %>
+    <% elsif current_user.friends.include?(@user)%>
+      <%= link_to "Unfriend", unfriend_path(friend_id: @user) %>
+    <% else %>
+      <%= link_to "Add Friend", add_friend_path(friend_id: @user) %>
+    <% end %>
+  </div>
+</div>
