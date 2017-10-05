@@ -1,14 +1,30 @@
-<h1>Login</h1>
+<div class="full">
+  <div class="mixmatch">
+    <h1><%= link_to 'MIXMATCH', welcome_path %></h1>
+  </div>
 
- <%= flash[:error] if flash[:error]%>
+  <div class="error">
+   <%= flash[:error] if flash[:error]%>
+ </div>
 
-<%= form_tag sessions_path do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %><br>
+  <div class='access-form-wrapper'>
+    <div class='access-form-wrap'>
+      <div class="access-form">
+        <%= form_tag sessions_path do %>
+          <div class="entry">
+            <%= label_tag :username %>
+            <%= text_field_tag :username %><br>
+          </div>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %><br>
+          <div class="entry">
+            <%= label_tag :password  %>
+            <%= password_field_tag :password %><br>
+          </div>
 
-  <%= submit_tag "Login" %>
+          <%= submit_tag "Login", class: 'login-button' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<% end%>
+</div>

@@ -1,16 +1,33 @@
-<h1>Sign Up</h1>
+<div class="full">
+  <div class="mixmatch">
+    <h1><%= link_to 'MIXMATCH', welcome_path %></h1>
+  </div>
 
-<%= flash[:error] if flash[:error]%>
+  <div class="error">
+   <%= flash[:error] if flash[:error]%>
+ </div>
 
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %><br>
+  <div class='access-form-wrapper'>
+    <div class='access-form-wrap'>
+      <div class="access-form">
 
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
+        <%= form_for @user do |f| %>
+          <div class="entry">
+            <%= f.label :username %>
+            <%= f.text_field :username %><br>
+          </div>
+          <div class="entry">
+            <%= f.label :password %>
+            <%= f.password_field :password %><br>
+          </div>
+          <div class="entry">
+            <%= f.label :confirm_password %>
+            <%= f.password_field :password_confirmation %><br>
+          </div>
+          <%= f.submit "Sign Up", class: 'login-button' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %><br>
-  <%= f.submit "Sign Up" %>
-
-<% end%>
+</div>
