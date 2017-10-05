@@ -63,7 +63,6 @@ body {
   text-decoration: none;
 }
 
-
 .buttons a:hover {
   color: #ff410c;
 }
@@ -117,12 +116,20 @@ body {
   transform: scale(1.15);
 }
 
+.pages li:active {
+  transform: translate(2px, 2px);
+}
+
 .pages a {
   color: #30414c;
 }
 
 .pages a:hover, .search-results .product-name:hover {
   color: #ff6e3a;
+}
+
+.pages a:active {
+  color: #b22812;
 }
 
 
@@ -137,7 +144,7 @@ body {
   float: left;
   height: 1000px;
   width: 48%;
-  margin-top: -31px;
+  margin-top: -32px;
   background-size: 100%;
   background-color: #f9dbc0;
 }
@@ -180,14 +187,52 @@ body {
   color: #f78a45;
 }
 
-/***************************** EDIT PROFILE PAGE ******************************************************/
+.categories a:active {
+  color: #b22812;
+  transform: translate(2px, 2px);
+}
+
+/***************************** EDIT PROFILE PAGE *****************************************************/
 
 #update-profile {
   background:none!important;
   color:inherit;
   border:none; 
-  padding:0!important;
-  font: inherit;
+  padding:10px!important;
+  font-family: 'Lora', serif;
+  font-size: 1em;
   /*border is optional*/
   cursor: pointer;
+
+  margin-right: 10px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  border: 1px solid #efefef;
+}
+
+#update-profile:hover {
+  transform: scale(1.06);
+  color: #ff6e3a;
+}
+
+#update-profile:focus {
+  outline: none!important;
+}
+
+#update-profile:active {
+  transform: translate(2px, 2px);
+}
+
+/***************************** STYLED OUTFIT PAGE ***************************************************/
+
+.styled-outfit li{
+  display: block;
+  float: left;
+  width: 220px;
+  height: 366px;
+  padding: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+  border: 1px solid #efefef;
 }

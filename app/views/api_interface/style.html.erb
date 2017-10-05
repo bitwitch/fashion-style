@@ -1,25 +1,31 @@
-<img src=<%=@images[:accessories]%> alt="Accessory Image">
-<p>Accessory</p>
-<%= link_to "Swap Accessory", swap_accessories_path(images: @images) %><br>
+<div class="styled-outfit">
+  <ul>
+    <li><img src=<%=@images[:accessories]%> alt="Accessory Image">
+      <p>Accessory</p>
+      <%= link_to "Swap Accessory", swap_accessories_path(images: @images) %>
+    </li>
 
-<img src=<%=@images[:outerwear]%> alt="Outerwear Image">
-<p>Outerwear</p>
-<%= link_to "Swap Outerwear", swap_outerwear_path(images: @images) %><br>
+    <li><img src=<%=@images[:outerwear]%> alt="Outerwear Image">
+      <p>Outerwear</p>
+      <%= link_to "Swap Outerwear", swap_outerwear_path(images: @images) %>
+    </li>
 
+    <li><img src=<%=@images[:tops]%> alt="Top Image">
+      <p>Top</p>
+      <%= link_to "Swap Top", swap_tops_path(images: @images) %>
+    </li>
 
-<img src=<%=@images[:tops]%> alt="Top Image">
-<p>Top</p>
-<%= link_to "Swap Top", swap_tops_path(images: @images) %><br>
+    <li><img src=<%=@images[:pants]%> alt="Pants Image">
+      <p>Pants</p>
+      <%= link_to "Swap Pants", swap_pants_path(images: @images) %>
+    </li>
 
-
-<img src=<%=@images[:pants]%> alt="Pants Image">
-<p>Pants</p>
-<%= link_to "Swap Pants", swap_pants_path(images: @images) %><br>
-
-
-<img src=<%=@images[:shoes]%> alt="Shoes Image">
-<p>Shoes</p>
-<%= link_to "Swap Shoes", swap_shoes_path(images: @images) %><br>
+    <li><img src=<%=@images[:shoes]%> alt="Shoes Image">
+      <p>Shoes</p>
+      <%= link_to "Swap Shoes", swap_shoes_path(images: @images) %>
+    </li>
+  </ul>
+</div>
 <br>
 
 <%= link_to "Save Outfit", new_outfit_path(images: @images) %>
