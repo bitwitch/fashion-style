@@ -7,9 +7,7 @@ body {
 }
 
 a {
-  color: $link-color;
   text-decoration: none;
-
   &:hover, &:active, &:focus {
     color: $link-color-hover;
   }
