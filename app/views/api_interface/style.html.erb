@@ -1,31 +1,66 @@
 <div class="styled-outfit">
   <ul>
-    <li><img src=<%=@images[:accessories]%> alt="Accessory Image">
+    <li>
       <p>Accessory</p>
-      <%= link_to "Swap Accessory", swap_accessories_path(images: @images) %>
+      <img src=<%=@images[:accessories]%> alt="Accessory Image">
+
+      <div class="swap-wrapper">
+        <div class="swap-item">
+          <%= link_to "Swap Accessory >", swap_accessories_path(images: @images) %>
+        </div>
+      </div>
     </li>
 
-    <li><img src=<%=@images[:outerwear]%> alt="Outerwear Image">
+    <li>
       <p>Outerwear</p>
-      <%= link_to "Swap Outerwear", swap_outerwear_path(images: @images) %>
+      <img src=<%=@images[:outerwear]%> alt="Outerwear Image">
+
+      <div class="swap-wrapper">
+        <div class="swap-item">
+          <%= link_to "Swap Outerwear >", swap_outerwear_path(images: @images) %>
+        </div>
+      </div>
     </li>
 
-    <li><img src=<%=@images[:tops]%> alt="Top Image">
+    <li>
       <p>Top</p>
-      <%= link_to "Swap Top", swap_tops_path(images: @images) %>
+      <img src=<%=@images[:tops]%> alt="Top Image">
+
+      <div class="swap-wrapper">
+        <div class="swap-item">
+          <%= link_to "Swap Top >", swap_tops_path(images: @images) %>
+        </div>
+      </div>
     </li>
 
-    <li><img src=<%=@images[:pants]%> alt="Pants Image">
+    <li>
       <p>Pants</p>
-      <%= link_to "Swap Pants", swap_pants_path(images: @images) %>
+      <img src=<%=@images[:pants]%> alt="Pants Image">
+
+      <div class="swap-wrapper">
+        <div class="swap-item">
+          <%= link_to "Swap Pants >", swap_pants_path(images: @images) %>
+        </div>
+      </div>
     </li>
 
-    <li><img src=<%=@images[:shoes]%> alt="Shoes Image">
+    <li>
       <p>Shoes</p>
-      <%= link_to "Swap Shoes", swap_shoes_path(images: @images) %>
+      <img src=<%=@images[:shoes]%> alt="Shoes Image">
+
+      <div class="swap-wrapper">
+        <div class="swap-item">
+          <%= link_to "Swap Shoes >", swap_shoes_path(images: @images) %>
+        </div>
+      </div>
     </li>
   </ul>
 </div>
+
 <br>
 
-<%= link_to "Save Outfit", new_outfit_path(images: @images) %>
+<div id="save-wrapper">
+  <div id="save-outfit">
+    <%= link_to "Save Outfit", new_outfit_path(images: @images) %>
+  </div>
+</div>

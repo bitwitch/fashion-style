@@ -20,4 +20,10 @@ class ApplicationController < ActionController::Base
     session.delete(:user_id)
   end
 
+  def require_login
+    unless logged_in?
+      redirect_to welcome_path
+    end
+  end
+
 end

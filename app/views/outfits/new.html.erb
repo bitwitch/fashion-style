@@ -1,22 +1,35 @@
 <%= form_tag outfits_path(images: @images) do %>
   <%= label_tag "What do you want to name your outfit? " %>
   <%= text_field_tag :name %>
-  <%= submit_tag "Save Outfit" %>
+  <%= submit_tag "Save Outfit", class: 'submit-button', id: 'save-outfit' %>
 <% end %>
 <br>
 
-<img src=<%=@images[:accessories]%> alt="Accessory Image">
-<p>Accessory</p>
+<div class="styled-outfit">
+  <ul>
+    <li>
+      <p>Accessory</p>
+      <img src=<%=@images[:accessories]%> alt="Accessory Image">
+    </li>
 
-<img src=<%=@images[:outerwear]%> alt="Outerwear Image">
-<p>Outerwear</p>
+    <li>
+      <p>Outerwear</p>
+      <img src=<%=@images[:outerwear]%> alt="Outerwear Image">
+    </li>
 
-<img src=<%=@images[:tops]%> alt="Top Image">
-<p>Top</p>
+    <li>
+      <p>Top</p>
+      <img src=<%=@images[:tops]%> alt="Top Image">
+    </li>
 
-<img src=<%=@images[:pants]%> alt="Pants Image">
-<p>Pants</p>
+    <li>
+      <p>Pants</p>
+      <img src=<%=@images[:pants]%> alt="Pants Image">
+    </li>
 
-<img src=<%=@images[:shoes]%> alt="Shoes Image">
-<p>Shoes</p>
-
+    <li>
+      <p>Shoes</p>
+      <img src=<%=@images[:shoes]%> alt="Shoes Image">
+    </li>
+  </ul>
+</div>

@@ -288,7 +288,9 @@ class ApiInterface < ApplicationRecord
         tops: style[:tops_url],
 
         pants: self.parse(self.products('pants jeans')).select do |product|
-          product["color"] == "white"
+          puts product['color']
+          product["color"] == "white" ||
+          product["color"] == "black"
         end.sample["image"]["url"],
 
         shoes: self.parse(self.products('heels')).select do |product|
@@ -297,7 +299,7 @@ class ApiInterface < ApplicationRecord
           product["color"] == "beige" 
         end.sample["image"]["url"] 
       }
-
+      
     else 
 
       {

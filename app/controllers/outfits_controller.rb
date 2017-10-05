@@ -1,5 +1,7 @@
 class OutfitsController < ApplicationController
 
+  before_action :require_login
+
   def index
     @outfits = Outfit.all.select{|outfit| outfit.user_id == current_user.id}
   end

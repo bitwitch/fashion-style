@@ -1,25 +1,38 @@
-<img src=<%=@outfit[:accessories_url]%> alt="Accessory Image">
-<p>Accessory</p>
+<div class="styled-outfit">
+  <ul>
+    <li>
+      <p>Accessory</p>
+      <img src=<%=@outfit[:accessories_url]%> alt="Accessory Image">
+    </li>
+    <li>
+      <p>Outerwear</p>
+      <img src=<%=@outfit[:outerwear_url]%> alt="Outerwear Image">
+    </li>
+    <li>
+      <p>Top</p>
+      <img src=<%=@outfit[:tops_url]%> alt="Top Image">
+    </li>
+    <li>
+      <p>Pants</p>
+      <img src=<%=@outfit[:pants_url]%> alt="Pants Image">
+    </li>
+    <li>
+      <p>Shoes</p>
+      <img src=<%=@outfit[:shoes_url]%> alt="Shoes Image">
+    </li>
+  </ul>
+</div>
 
-<img src=<%=@outfit[:outerwear_url]%> alt="Outerwear Image">
-<p>Outerwear</p>
+<div id="like-wrapper">
+  <div id="like-link">
+    <% if @outfit.user == current_user %>
+      <%= link_to "View Likes", view_likes_path(outfit_id: @outfit) %>
 
-<img src=<%=@outfit[:tops_url]%> alt="Top Image">
-<p>Top</p>
+    <% elsif Like.liked?(current_user, @outfit)%>
+     <%= link_to "Unlike", unlike_path(outfit_id: @outfit)%>
+    <% else %>
+      <%= link_to "Like", like_outfit_path(outfit_id: @outfit) %>
 
-<img src=<%=@outfit[:pants_url]%> alt="Pants Image">
-<p>Pants</p>
-
-<img src=<%=@outfit[:shoes_url]%> alt="Shoes Image">
-<p>Shoes</p>
-
-
-<% if @outfit.user == current_user %>
-  <%= link_to "View Likes", view_likes_path(outfit_id: @outfit) %>
-
-<% elsif Like.liked?(current_user, @outfit)%>
- <%= link_to "Unlike", unlike_path(outfit_id: @outfit)%>
-<% else %>
-  <%= link_to "Like", like_outfit_path(outfit_id: @outfit) %>
-
-<% end %>
+    <% end %>
+  </div>
+</div>
