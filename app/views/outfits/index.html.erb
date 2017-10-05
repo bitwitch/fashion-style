@@ -1,4 +1,15 @@
+<div class="my-outfits-page-wrapper">
+  <div class="my-outfits-text">
 
-<% @outfits.each do |outfit| %>
-  <p><%= link_to outfit.name, outfit %></p>
-<% end %>
+    <h2>All My Outfits</h2>
+
+  </div>
+  <div class="each-outfit-name">
+
+    <% @outfits.each do |outfit| %>
+      <p><%= link_to outfit.name, outfit %></p>
+    <% end %>
+
+  </div>
+
+</div>

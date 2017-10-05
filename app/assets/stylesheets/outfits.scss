@@ -61,4 +61,37 @@
     }
   }
 
-  
+  .my-outfits-page-wrapper {
+
+    .my-outfits-text {
+      text-align: center;
+      font-family: 'Crimson Text', sans-serif;
+      font-size: 1.5em;
+    }
+
+    .each-outfit-name {
+      column-count: 3;
+      text-align: center;
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: 100;
+      font-size: 2em;
+      padding: 30px;
+    }
+
+    .each-outfit-name p {
+      margin-top: 0;
+    }
+
+    a {
+      color: #ff6e3a;
+    }
+
+    a:hover {
+      color: #b22812;
+    }
+
+    a:active {
+      color: #b22812;
+    }
+
+  }
