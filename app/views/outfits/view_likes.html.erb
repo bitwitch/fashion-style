@@ -1,3 +1,12 @@
-<% @users.each do |user|%>
-  <%= link_to user.username, user %>
-<% end %>
+
+
+<div class="view-who-has-liked-your-outfit">
+  <div class="friend-who-liked-outfits">
+    <h2>See who has liked your outfits!</h2>
+  </div>
+  <div class="friends-who-like-container">
+    <% @users.each do |user| %>
+    <p><%= link_to user.username.capitalize, user %></p>
+    <% end %>
+  </div>
+</div>

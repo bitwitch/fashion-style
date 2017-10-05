@@ -2,3 +2,63 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'variables';
+
+.view-who-has-liked-your-outfit {
+
+    text-align: center;
+    width: 100%;
+    // padding: 15px 15px;
+    left: 0;
+    display: inline-block;
+    p {
+      padding: 15px;
+    }
+
+    a {
+      color: $heading-color;
+      font-size: 1.5em;
+    }
+    a:hover {
+      color: #ddd;
+    }
+    // .click-to-see {
+    //   width: 50%;
+    //   float: left;
+    //   text-align: center;
+    // }
+
+    .friend-who-liked-outfits {
+      font-size: 1.2em;
+      text-align: center;
+      position: relative;
+      float: left;
+      height: 1000px;
+      width: 50%;
+      margin-top: -19px;
+      background-size: 100%;
+      background-color: #f9dbc0;
+    }
+
+    .friend-who-liked-outfits div {
+      text-align: center;
+      position: absolute;
+      top: 20%;
+      left: 25%;
+      width: 50%;
+      color: #30414c;
+    }
+    h2 {
+      margin-top: 35%;
+      // width: 50%;
+      // float: left;
+      // text-align: center;
+
+    }
+    .friends-who-like-container {
+      float: right;
+      width: 50%;
+      text-align: center;
+    }
+  }
+
+  
