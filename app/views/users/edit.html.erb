@@ -1,26 +1,37 @@
-<%= form_for @user do |f| %>
-  <%= image_tag('one.jpg', alt: 'icon 1') %>
-  <%= f.radio_button :image, 'one.jpg' %>
 
-  <%= image_tag('two.jpg', alt: 'icon 2') %>
-  <%= f.radio_button :image, 'two.jpg' %>
+<div class="user-profile-edit-wrapper">
+  <h1>Pick a Profile Picture</h1>
+  <%= form_for @user do |f| %>
+    <%= image_tag('one.jpg', alt: 'icon 1') %>
+    <%= f.radio_button :image, 'one.jpg' %>
 
-  <%= image_tag('three.jpg', alt: 'icon 3') %>
-  <%= f.radio_button :image, 'three.jpg' %>
+    <%= image_tag('four.jpg', alt: 'icon 2') %>
+    <%= f.radio_button :image, 'two.jpg' %>
 
-  <%= image_tag('four.jpg',  alt: 'icon 3') %>
-  <%= f.radio_button :image, 'four.jpg' %><br>
+    <%= image_tag('three.jpg', alt: 'icon 3') %>
+    <%= f.radio_button :image, 'three.jpg' %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
+    <%= image_tag('two.jpg',  alt: 'icon 4') %>
+    <%= f.radio_button :image, 'four.jpg' %>
 
-  <%= f.label :age %>
-  <%= f.number_field :age %><br>
+    <div class="user-profile-edit-text-wrapper">
 
-  <%= f.label :location %>
-  <%= f.text_field :location %><br>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
-  <%= f.label :style_description %>
-  <%= f.text_area :style_description %><br>
-  <%= f.submit "Update Profile" %>
-<% end %>
+      <%= f.label :age %>
+      <%= f.number_field :age %>
+
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+
+      <%= f.label :style_description %>
+
+      <%= f.text_area :style_description %>
+    </div>
+
+      <%= f.submit "Update Profile", class: "user-profile-edit-button"  %>
+
+  <% end %>
+
+</div>
