@@ -8,16 +8,15 @@
     <p>Style: <%= @user.style_description if @user.style_description %></p>
   </div>
   <div class="user-profile-links">
-    <%= link_to "Outfits", all_outfits_path(user_id: @user) %>
-
+    <div><%= link_to "Outfits", all_outfits_path(user_id: @user) %></div>
     <% if @user == current_user %>
-      <%= link_to "My Friends", my_friends_path %>
-      <%= link_to "Outfits I Like", outfits_i_like_path %>
-      <%= link_to "Edit Profile", edit_user_path(@user) %>
+      <div><%= link_to "My Friends", my_friends_path %></div>
+      <div><%= link_to "Outfits I Like", outfits_i_like_path %></div>
+      <div><%= link_to "Edit Profile", edit_user_path(@user) %></div>
     <% elsif current_user.friends.include?(@user)%>
-      <%= link_to "Unfriend", unfriend_path(friend_id: @user) %>
+      <div><%= link_to "Unfriend", unfriend_path(friend_id: @user) %></div>
     <% else %>
-      <%= link_to "Add Friend", add_friend_path(friend_id: @user) %>
+      <div><%= link_to "Add Friend", add_friend_path(friend_id: @user) %></div>
     <% end %>
   </div>
 </div>

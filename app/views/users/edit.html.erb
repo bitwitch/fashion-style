@@ -5,26 +5,26 @@
     <%= image_tag('one.jpg', alt: 'icon 1') %>
     <%= f.radio_button :image, 'one.jpg' %>
 
-    <%= image_tag('four.jpg', alt: 'icon 2') %>
+    <%= image_tag('two.jpg', alt: 'icon 2') %>
     <%= f.radio_button :image, 'two.jpg' %>
 
     <%= image_tag('three.jpg', alt: 'icon 3') %>
     <%= f.radio_button :image, 'three.jpg' %>
 
-    <%= image_tag('two.jpg',  alt: 'icon 4') %>
+    <%= image_tag('four.jpg',  alt: 'icon 4') %>
     <%= f.radio_button :image, 'four.jpg' %>
 
     <div class="user-profile-edit-text-wrapper">
-      <%= f.label :name %>
+      <%= f.label "Name:" %>
       <%= f.text_field :name %>
 
-      <%= f.label :age %>
+      <%= f.label "Age:" %>
       <%= f.number_field :age %>
 
-      <%= f.label :location %>
+      <%= f.label "Location:" %>
       <%= f.text_field :location %>
 
-      <%= f.label :style_description %>
+      <%= f.label "Style Description:" %>
       <%= f.text_area :style_description %>
     </div>
 
