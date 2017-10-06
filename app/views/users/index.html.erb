@@ -1,11 +1,10 @@
-
 <div class="friends-pages-links">
   <div class="click-to-see">
-    <h2>Click on a friend to view their page!</h2>
+    <h2>Click on a user to view their profile:</h2>
   </div>
   <div class="friends-container">
-    <% @users.each do |user| %>
-    <p><%= link_to user.username.capitalize, user %></p>
-    <% end %>
+      <% @users.each do |user| %>
+        <p><%= link_to user.username.capitalize, user %></p>
+      <% end %>
   </div>
 </div>

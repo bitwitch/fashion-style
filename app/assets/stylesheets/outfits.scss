@@ -78,20 +78,18 @@
       padding: 30px;
     }
 
-    .each-outfit-name p {
-      margin-top: 0;
-    }
+    .each-outfit-name {
 
-    a {
-      color: #ff6e3a;
-    }
+      p {
+        margin-top: 0;
+      }
 
-    a:hover {
-      color: #b22812;
-    }
+      a {
+        color: #ff6e3a;
+      }
 
-    a:active {
-      color: #b22812;
+      a:hover {
+        color: #b22812;
+      }
     }
-
   }

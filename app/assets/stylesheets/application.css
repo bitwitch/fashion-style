@@ -110,14 +110,23 @@ body {
   text-align: center;
 }
 
-#login-buttons a {
+#login-buttons div {
+  display: inline-block;
   box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
   font-size: 2em;
   font-family: 'Nunito', sans-serif;
   border: 1px solid #ffc8aa;
   padding: 20px;
-  margin: 40px 30px;
+  margin: 10px 30px;
   background-color: rgba(255, 246, 242, 0.35);
+}
+
+#login-buttons div:hover {
+  transform: scale(1.05);
+}
+
+#login-buttons div:active {
+  transform: translate(2px, 2px);
 }
 
 #login-buttons a{
@@ -477,7 +486,7 @@ body {
   transform: translate(2px, 2px);
 }
 
-/***************************** EDIT PROFILE PAGE ***************************************************/
+/*****************************  PROFILE PAGE *****************************************************/
 
 .user-profile-links {
   margin-top: 2em;
