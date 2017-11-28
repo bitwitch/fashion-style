@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20171004152608) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "friendships", force: :cascade do |t|
     t.integer "friend_id"
     t.integer "user_id"
@@ -34,7 +37,6 @@ ActiveRecord::Schema.define(version: 20171004152608) do
     t.string "shoes_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "description"
   end
 
   create_table "users", force: :cascade do |t|
